@@ -1,0 +1,71 @@
+﻿
+    <script>
+    $(function () {
+        $('#SaveLogin').on('click', function () {
+
+            // Formattage des données
+            var data = JSON.stringify(GetUser());
+
+
+                 $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Ident", "Dashboard")',
+            contentType: "application/json;",
+            data: data,
+            success: function (response) {
+                console.log(response);
+
+                if (response ) {
+                    //$("#evalBody").html(response);
+                    //CheckEnable();
+                    //window.location.href = "Dashboard/Index";
+
+                }
+
+            },
+            error: function (response) {
+                //HandlingControllerError(response.responseText);
+                console.log(response.responseText);
+            }
+        });
+
+
+
+
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Ident", "Login")',
+            contentType: "application/json;",
+            data: data,
+            success: function (response) {
+                console.log(response);
+
+                if (response ) {
+                    //$("#evalBody").html(response);
+                    //CheckEnable();
+                    window.location.href = "../Dashboard/Index";
+                }
+
+            },
+            error: function (response) {
+                //HandlingControllerError(response.responseText);
+                console.log(response.responseText);
+            }
+        });
+
+
+        });
+    });
+
+        // Formattage des données
+        // public ActionResult Ident(LoginModel loginModel)
+    function GetUser() {
+        var jsonObject = {
+            "LoginEmail": $("#loginEmail").val(),
+            "LoginPassword": $("#loginPassword").val(),
+        };
+        return jsonObject;
+    }
+    </script>
+

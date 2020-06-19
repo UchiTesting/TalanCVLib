@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "";
+}
+<h2>ACCUEIL</h2>
+<p class="lead">PAGE LOGIN</p>
+<p>
+    @Html.ActionLink("test",
+                    "ModalLogin",  // <-- Controller Name.
+                    "Login"// , // <-- ActionMethod
+                           //new { id = article.ArticleID }, // <-- Route arguments.
+                           //null  // <-- htmlArguments .. which are none. You need this value
+                           //     otherwise you call the WRONG method ...
+                           //     (refer to comments, below).
+                    )
+</p>

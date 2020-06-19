@@ -1,0 +1,48 @@
+﻿<script>
+    // Attend la page soit chargée pour exécuter la fonction
+    $(document).ready(function () {
+        GetUsers();
+    });
+
+     function GetUsers() {
+
+
+
+        //Populate Table
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetUser", "User")',
+            contentType: "application/json;",
+            //data: json,
+            success: function (response) {
+                //if (response.success != false && !response.error) {
+                    $("#users").html(response);
+                    //CheckEnable();
+                //}
+                //else
+                //    HandlingControllerError(response.Error);
+            },
+            error: function (response) {
+                HandlingControllerError(response.responseText);
+                console.log(response.responseText);
+            }
+        });
+    };
+
+
+    $('#users').on('click', 'tr', function () {
+        var myArr = [];
+        $(this).find('th,td').each(function (colIndex, c) {
+            myArr[colIndex] = c.innerText;
+        });
+
+
+        $('#Nom').val(myArr[2]);
+        $("#myModal").modal("show");
+    });
+    //$('#myModal').modal('show')
+
+    //$('#myModal').modal('hide')
+
+</script>
+

@@ -1,0 +1,13 @@
+﻿
+@model List<WebApplication4.Models.Hobbie>
+
+
+@foreach (var hob in Model)
+{
+    <tr>
+        <td>@hob.HobbieID</td>
+        <td>@hob.Description</td>
+
+    </tr>
+}
+

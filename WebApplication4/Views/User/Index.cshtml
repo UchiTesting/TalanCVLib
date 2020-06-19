@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>USERS</h2>
+@if (ViewBag.Role == DBModel_DAL.Roles.Admin.ToString())
+{
+    <div id="users">
+
+    </div>
+}
+
+@Html.Partial("_Script")
+@Html.Partial("_Modal")

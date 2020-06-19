@@ -1,0 +1,13 @@
+﻿
+@model List<DBModel_DAL.UserModel>
+
+@foreach (var user in Model)
+{
+    <tr>
+        <td>@user.ID</td>
+        <td>@user.Nom</td>
+        <td>@user.Prenom</td>
+        <td>@user.Email</td>
+    </tr>
+}
+
