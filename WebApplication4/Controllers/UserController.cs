@@ -2,10 +2,12 @@
 using Newtonsoft.Json;
 using System.Web.Mvc;
 using System.Web.Security;
+using WebApplication4.App_Start;
 using WebServices;
 
 namespace WebApplication4.Controllers
 {
+    [AuthorizeCustom("Admin")]
     public class UserController : Controller
     {
         public ActionResult Index()

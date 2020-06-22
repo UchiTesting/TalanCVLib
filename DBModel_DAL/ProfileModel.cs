@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DBModel_DAL
 {
-    public enum Gender { Homme, Femme }
+    
     public class ProfileModel
     {
         public int ProfileID { get; set; }
